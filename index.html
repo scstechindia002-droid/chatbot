@@ -17,62 +17,61 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-   
-    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    
   </head>
   <body>
     <main>
-      <div class="container">
-        <button
-          class="btn"
-          data-bs-toggle="modal"
-          href="#exampleModalToggle"
-          role="button"
-        >
-          <i class="fa-regular fa-comment"></i>
-        </button>
-        <div class="chatbot-container">
-          <div
-            class="modal fade"
-            id="exampleModalToggle"
-            aria-hidden="true"
-            aria-labelledby="exampleModalToggleLabel"
-            tabindex="-1"
-          >
+      <section class="page-padding">
+        <div class="container">
+          <div class="chatbot-btn-container">
+            <h6>Ask Probot</h6>
             <div
-              class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+              class="chatbot-show-btn"
+              data-bs-label="chatbot-show-btn"
+              id="chatbot-show-btn"
             >
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalToggleLabel">
-                    <img src="assets/images/scs logo-black.png" alt="logo" />
-                  </h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
+              <img src="assets/images/Group 47286.svg" alt="message-icon" />
+            </>
+          </div>
+          <div class="chatbot-container" id="chatbot-container">
+            <div class="chatbot-container">
+              <div class="chatbot-header">
+                <div class="chatbot-header-content">
+                  <img
+                    src="assets/images/message-light-icon.png"
+                    width="40"
+                    height="40"
+                    alt="message-icon"
+                  />
+                  <p>I am Probot, your digital assistant.</p>
                 </div>
-                <div class="modal-body">
-                  <div class="chatbot-content" id="chatbot-content"></div>
+                <div class="chatbot-close-btn">
+                  <img
+                    src="assets/images/chatbot-close-icon.png"
+                    alt="chatbot-close-btn-img"
+                    width="20"
+                    height="20"
+                    id="chatbot-close-btn"
+                  />
                 </div>
-                <div class="modal-footer">
-                  <div class="chatbot-input-container">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="chatbot-message"
-                      placeholder="type message..."
-                      onchange="chatbotMessage()"
-                    />
-                  </div>
-                </div>
+              </div>
+              <div class="chatbot-content" id="chatbot-content"></div>
+              <div class="chatbot-input-container">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="chatbot-message"
+                  placeholder="type message..."
+                  onchange="chatbotMessage()"
+                />
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </main>
 
     <script

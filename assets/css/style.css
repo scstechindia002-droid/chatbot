@@ -1,36 +1,119 @@
- 
-      .chatbot-input-container {
-        width: 100%;
-        height: 40px;
-        background-color: #f7d5d5;
-        border-radius: 30px;
+
+        p {
+        margin-bottom: 0px;
+      }
+      body {
+        background-color: #222;
+      }
+      .page-padding {
+        padding: 80px 0;
+      }
+      .chatbot-container {
+        width: 350px;
+        min-height: 600px;
+        border: 1px solid #ff4546;
+        border-radius: 45px 45px 0px 0px;
         overflow: hidden;
+        position: fixed;
+        bottom: 0;
+        right: 0;
       }
 
+      .chatbot-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #ff4546;
+        color: #ffffff;
+        padding: 20px;
+      }
+      .chatbot-header-content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .chatbot-btn-container {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #fff;
+      }
+    .chatbot-show-btn{
+      background-color: transparent;
+    }
+      .chatbot-show-btn img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .chatbot-content {
+        padding: 10px 15px;
+        height: 450px;
+        overflow-y: scroll;
+        background-color: #000000;
+      }
+      .chatbot-content::-webkit-scrollbar {
+        width: 2px;
+      }
+
+      /* Scrollbar track (background) */
+      .chatbot-content::-webkit-scrollbar-track {
+        background: red;
+      }
+
+      /* Scrollbar thumb (the draggable part) */
+      .chatbot-content::-webkit-scrollbar-thumb {
+        background: #555; /* you can change this */
+        border-radius: 10px;
+      }
+
+      .chatbot-input-container {
+        position: absolute;
+        bottom: 0px;
+        background-color: #ff4546;
+        width: 100%;
+        height: 60px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+      }
       .chatbot-input-container input {
-        background-color: transparent;
-        border: none;
-        outline: none;
-        color: #222;
-        box-shadow: none;
+        background-color: #ffffff;
+        border-radius: 30px;
       }
       .chatbot-input-container input:hover {
-        background-color: transparent;
-        color: #222;
-        border: none;
-        outline: none;
-         box-shadow: none;
+        background-color: #ffffff;
       }
       .chatbot-input-container input:focus {
-        background-color: transparent;
-        color: #222;
-        border: none;
-        outline: none;
-         box-shadow: none;
+        background-color: #ffffff !important;
+      }
+      .chatbot-input-container input:active {
+        background-color: #ffffff;
+      }
+      .chatbot-details-btn-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+      }
+      .chatbot-details-btn-container button {
+        background-color: #FF7171;
+        color: #000000;
+        padding: 7px 12px;
+        font-size: 15px;
       }
 
-      .chatbot-input-container input::placeholder {
-        color: #222;
+      @keyframes up-down {
+        0% {
+          transform: translateY(0px);
+        }
+        100% {
+          transform: translateY(-5px);
+        }
       }
 
       .typemessage {
@@ -45,8 +128,8 @@
       .typemessage div,
       .reply-message-container div,
       .abouttab-container div {
-        background-color: #e64f24;
-        color: #ffffff;
+        background-color: #ffe6e6;
+        color: #000000;
         min-width: 20px;
         padding: 5px;
         border-radius: 6px;
@@ -63,7 +146,7 @@
       .dotte {
         width: 6px;
         height: 6px;
-        background-color: #fc7777;
+        background-color: #ffe6e6;
         border-radius: 30px;
         animation: up-down 0.4s infinite alternate linear;
       }
@@ -71,19 +154,16 @@
         animation: up-down 0.5s infinite alternate linear;
       }
 
-      @keyframes up-down {
-        0% {
-          transform: translateY(0px);
-        }
-        100% {
-          transform: translateY(-5px);
-        }
-      }
+
+
 
       @media screen and (max-width: 768px) {
         .sm-screen-flex{
           display: flex;
           flex-direction: column;
+        }
+        .chatbot-container{
+          right: 10px;
         }
       }
     
