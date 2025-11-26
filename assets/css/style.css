@@ -32,7 +32,6 @@ body.appear-animate {
   justify-content: center;
   border-radius: 30px;
   cursor: pointer;
-  border: 1px solid #ff4545;
 }
 
 .chatbot-show-btn img {
@@ -180,9 +179,12 @@ body.appear-animate {
 }
 .type-message-time{
   text-align: right;
+  font-size: 12px;
+  margin-bottom: 8px;
 }
 .reply-message-time{
   margin-bottom: 8px;
+  font-size: 12px;
 }
 
 .chatbot-details-btn-container {
@@ -244,6 +246,10 @@ body.appear-animate {
 .services-table {
   margin-top: 15px;
 }
+.chatbot-links{
+  color: #000000;
+  text-decoration: none;
+}
 @keyframes up-Down {
   0% {
     transform: translateY(0px);
@@ -258,13 +264,20 @@ body.appear-animate {
     width: 356px;
     min-height: 440px;
   }
+  .chatbot-header{
+    padding: 18px;
+  }
   .chatbot-header-icon {
     width: 36px;
     height: 36px;
   }
   .chatbot-header-icon img {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
+  }
+  .chatbot-reply-icon img{
+    width: 26px;
+    height: 26px;
   }
   .chatbot-header-content p {
     font-size: 16px;

@@ -11,9 +11,10 @@ chatbotContainer.style.display = "none";
 chatbotShowBtn.style.display = "flex";
 // -----------chatbot-open---------------------
 chatbotShowBtn.addEventListener("click", () => {
-    getReply()
-  chatbotContainer.style.display = "block";
-  chatbotShowBtn.style.display = "none";
+   getReply()
+   chatbotContainer.style.display = "block";
+   chatbotShowBtn.style.display = "none";
+   getCurrentMessageTime()
 });
 
 function mainMenu() {
@@ -57,7 +58,7 @@ function getReply(userMessage) {
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
-  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button></div><div id="messageTime">${currentMessageTime}</div></div>`;
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
   chatbotContent.appendChild(typeMessage);
 }
 
@@ -113,6 +114,8 @@ function aboutBtn() {
 }
 
 function contactDetailsTabShow(){
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------animted-dotte-loader------------------
   const animatedDotte = document.createElement("div");
   animatedDotte.className = "animated-dotte-container";
@@ -137,16 +140,18 @@ function contactDetailsTabShow(){
      // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
-  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productDiscussionTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button></div><div class="type-message-content">${currentMessageTime}</div></div>`;
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button></div><div class="type-message-content">${currentMessageTime}</div></div>`;
   chatbotContent.appendChild(typeMessage);
   },1010)
 }
 
 function serviceTab() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
-  typeMessage.innerHTML = `<div class="type-message">Services</div>`;
+  typeMessage.innerHTML = `<div class="typemessage-content"><div class="type-message">Services</div><div class="type-message-time">${currentMessageTime}</div></div>`;
   chatbotContent.appendChild(typeMessage);
   // ------------animted-dotte-loader------------------
   const animatedDotte = document.createElement("div");
@@ -175,6 +180,8 @@ function serviceTab() {
  },1050)
 }
 function serviceDetailTabShow(){
+   currentMessageTime = ''
+  getCurrentMessageTime()
   setTimeout(() => {
      const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
@@ -201,6 +208,8 @@ function serviceDetailTabShow(){
 
 
 function digitalInformation() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
@@ -219,7 +228,7 @@ function digitalInformation() {
     animatedDotte.style.display = "none";
     const aboutTab = document.createElement("div");
     aboutTab.className = "reply-message-container";
-    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b>Digital Transformation</b> services involve partnering with clients to fundamentally rethink and rebuild business processes, culture, and customer experiences by integrating modern digital technologies. This is achieved through strategic consulting, modernization of legacy systems, adoption of Cloud and AI/ML, and implementing enterprise-wide solutions like ERP to streamline operations, enhance efficiency, and unlock new data-driven revenue streams.</P></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
+    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b><a class="chatbot-links" href="digital-transformation">Digital Transformation</a></b> services involve partnering with clients to fundamentally rethink and rebuild business processes, culture, and customer experiences by integrating modern digital technologies. This is achieved through strategic consulting, modernization of legacy systems, adoption of Cloud and AI/ML, and implementing enterprise-wide solutions like ERP to streamline operations, enhance efficiency, and unlock new data-driven revenue streams.</P></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
     chatbotContent.appendChild(aboutTab);
     chatbotContent.scrollTo({
       top: chatbotContent.scrollHeight,
@@ -230,11 +239,13 @@ function digitalInformation() {
     // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
-  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button></div></div>`;
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div></div>`;
   chatbotContent.appendChild(typeMessage);
   },1005)
 }
 function softwareDevelopmentTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
   typeMessage.innerHTML = `<div class="typemessage-content"><div class="type-message">Software Development</div><div class="type-message-time">${currentMessageTime}</div></div>`;
@@ -252,7 +263,7 @@ function softwareDevelopmentTabShow() {
     animatedDotte.style.display = "none";
     const aboutTab = document.createElement("div");
     aboutTab.className = "reply-message-container";
-    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b>Software Development</b> services cover the entire lifecycle of creating bespoke digital solutions, from initial requirements analysis and UX/UI design to coding, testing, deployment, and ongoing maintenance. Offerings typically include developing custom enterprise applications, mobile apps, web portals, and integrating systems to ensure a solution is highly functional, scalable, secure, and perfectly aligns with unique business needs.</p></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
+    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b><a class="chatbot-links" href="software-development">Software Development</a></b> services cover the entire lifecycle of creating bespoke digital solutions, from initial requirements analysis and UX/UI design to coding, testing, deployment, and ongoing maintenance. Offerings typically include developing custom enterprise applications, mobile apps, web portals, and integrating systems to ensure a solution is highly functional, scalable, secure, and perfectly aligns with unique business needs.</p></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
     chatbotContent.appendChild(aboutTab);
     chatbotContent.scrollTo({
       top: chatbotContent.scrollHeight,
@@ -263,11 +274,13 @@ function softwareDevelopmentTabShow() {
     // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
-  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
   chatbotContent.appendChild(typeMessage);
   },1005)
 }
 function aiDataAnalyticsTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
@@ -286,7 +299,7 @@ function aiDataAnalyticsTabShow() {
     animatedDotte.style.display = "none";
     const aboutTab = document.createElement("div");
     aboutTab.className = "reply-message-container";
-    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b>AI/ML & Data Analytics</b> services focus on helping organizations leverage their data assets to drive informed decision-making. This includes implementing advanced analytics platforms, building predictive models using Machine Learning (ML), developing Artificial Intelligence (AI) solutions like chatbots or smart automation, and providing Business Intelligence (BI) dashboards for actionable insights, transforming raw data into strategic foresight.</p></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
+    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b><a class="chatbot-links" href="ai-ml-and-data-analytics-services">AI/ML & Data Analytics</a></b> services focus on helping organizations leverage their data assets to drive informed decision-making. This includes implementing advanced analytics platforms, building predictive models using Machine Learning (ML), developing Artificial Intelligence (AI) solutions like chatbots or smart automation, and providing Business Intelligence (BI) dashboards for actionable insights, transforming raw data into strategic foresight.</p></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
     chatbotContent.appendChild(aboutTab);
     chatbotContent.scrollTo({
       top: chatbotContent.scrollHeight,
@@ -297,11 +310,13 @@ function aiDataAnalyticsTabShow() {
     // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
-  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
   chatbotContent.appendChild(typeMessage);
   },1005)
 }
 function roboticProcessAutomationTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
   typeMessage.innerHTML = `<div class="typemessage-content"><div class="type-message">Robotic Process Automation</div><div class="type-message-time">${currentMessageTime}</div></div>`;
@@ -319,7 +334,7 @@ function roboticProcessAutomationTabShow() {
     animatedDotte.style.display = "none";
     const aboutTab = document.createElement("div");
     aboutTab.className = "reply-message-container";
-    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b>Robotic Process Automation (RPA)</b> involves using software 'robots' to automate high-volume, repetitive, rule-based tasks across various business functions, such as data entry, form processing, and system integration. RPA services include process discovery, bot development, deployment, and governance to minimize human error, significantly reduce operational costs, and free up employees for more strategic, high-value work.</p></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
+    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b><a class="chatbot-links" href="robotic-process-automation">Robotic Process Automation (RPA)</a></b> involves using software 'robots' to automate high-volume, repetitive, rule-based tasks across various business functions, such as data entry, form processing, and system integration. RPA services include process discovery, bot development, deployment, and governance to minimize human error, significantly reduce operational costs, and free up employees for more strategic, high-value work.</p></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
     chatbotContent.appendChild(aboutTab);
     chatbotContent.scrollTo({
       top: chatbotContent.scrollHeight,
@@ -330,12 +345,14 @@ function roboticProcessAutomationTabShow() {
     // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
-  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
   chatbotContent.appendChild(typeMessage);
   },1005)
 }
 
 function blockchainTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
@@ -362,7 +379,7 @@ function blockchainTabShow() {
     aboutTab.className = "reply-message-container";
     aboutTab.innerHTML = `
       <div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content">
-        <p><b>Blockchain</b> services assist businesses in adopting distributed ledger technology (DLT) 
+        <p><b><a href="blockchain" class="chatbot-links">Blockchain</a></b> services assist businesses in adopting distributed ledger technology (DLT) 
         to create secure, transparent, and immutable records...</p>
       </div><div class="reply-message-time">${currentMessageTime}</div></div>`;
     chatbotContent.appendChild(aboutTab);
@@ -376,12 +393,14 @@ function blockchainTabShow() {
     // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
-  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
   chatbotContent.appendChild(typeMessage);
   },1005)
 }
 
 function geographicInformationSystemTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
@@ -400,7 +419,7 @@ function geographicInformationSystemTabShow() {
     animatedDotte.style.display = "none";
     const aboutTab = document.createElement("div");
     aboutTab.className = "reply-message-container";
-    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b>Geographic Information System (GIS)</b> services provide the tools and expertise to capture, manage, analyze, and visualize all types of location-based data. This involves developing custom mapping applications, integrating spatial data into enterprise systems (like utilities or logistics), and performing spatial analysis to enable location intelligence for improved decision-making in areas like asset tracking, urban planning, and resource management.</p></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
+    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b><a href="geographic-information-system-gis" class="chatbot-links">Geographic Information System (GIS)</a></b> services provide the tools and expertise to capture, manage, analyze, and visualize all types of location-based data. This involves developing custom mapping applications, integrating spatial data into enterprise systems (like utilities or logistics), and performing spatial analysis to enable location intelligence for improved decision-making in areas like asset tracking, urban planning, and resource management.</p></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
     chatbotContent.appendChild(aboutTab);
     chatbotContent.scrollTo({
       top: chatbotContent.scrollHeight,
@@ -411,11 +430,13 @@ function geographicInformationSystemTabShow() {
     // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
-  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
   chatbotContent.appendChild(typeMessage);
   },1005)
 }
 function cybersecurityTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
@@ -434,7 +455,7 @@ function cybersecurityTabShow() {
     animatedDotte.style.display = "none";
     const aboutTab = document.createElement("div");
     aboutTab.className = "reply-message-container";
-    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b>Cybersecurity</b>services aim to protect an organization's systems, networks, and data from digital threats, ensuring confidentiality, integrity, and availability. Core offerings include risk assessments, vulnerability and penetration testing, 24/7 Managed Security Services (MSS), Incident Response planning, and implementing advanced solutions for threat detection, identity and access management (IAM), and regulatory compliance.</p></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
+    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b><a href="cybersecurity" class="chatbot-links">Cybersecurity</a></b> services aim to protect an organization's systems, networks, and data from digital threats, ensuring confidentiality, integrity, and availability. Core offerings include risk assessments, vulnerability and penetration testing, 24/7 Managed Security Services (MSS), Incident Response planning, and implementing advanced solutions for threat detection, identity and access management (IAM), and regulatory compliance.</p></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
     chatbotContent.appendChild(aboutTab);
     chatbotContent.scrollTo({
       top: chatbotContent.scrollHeight,
@@ -445,11 +466,13 @@ function cybersecurityTabShow() {
     // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
-  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
   chatbotContent.appendChild(typeMessage);
   },1005)
 }
 function cloudTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
@@ -468,7 +491,7 @@ function cloudTabShow() {
     animatedDotte.style.display = "none";
     const aboutTab = document.createElement("div");
     aboutTab.className = "reply-message-container";
-    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b>Cloud</b> services involve providing expertise across the major cloud platforms (e.g., AWS, Azure, GCP) to manage compute, storage, and networking resources. Services encompass strategic Cloud migration and modernization, developing Cloud-native applications, optimizing performance and cost management (FinOps), and offering Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Software-as-a-Service (SaaS) solutions.</p></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
+    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b><a href="cloud" class="chatbot-links">Cloud</a></b> services involve providing expertise across the major cloud platforms (e.g., AWS, Azure, GCP) to manage compute, storage, and networking resources. Services encompass strategic Cloud migration and modernization, developing Cloud-native applications, optimizing performance and cost management (FinOps), and offering Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Software-as-a-Service (SaaS) solutions.</p></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
     chatbotContent.appendChild(aboutTab);
     chatbotContent.scrollTo({
       top: chatbotContent.scrollHeight,
@@ -479,11 +502,13 @@ function cloudTabShow() {
     // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
-  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
   chatbotContent.appendChild(typeMessage);
   },1005)
 }
 function ItConsultancyTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
@@ -499,7 +524,7 @@ function ItConsultancyTabShow() {
     animatedDotte.style.display = "none";
     const aboutTab = document.createElement("div");
     aboutTab.className = "reply-message-container";
-    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b>IT Consultancy</b> provides expert advisory services to guide businesses on technology strategy, architecture, and implementation to achieve specific business goals. Consultants conduct comprehensive technology assessments, develop long-term IT roadmaps, help with vendor and platform selection, and manage complex technology projects to ensure alignment between IT investments and overall corporate strategy.</p></div><div class="type-message-time">${currentMessageTime}</div></div>`;
+    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b><a href="it-consultancy" class="chatbot-links">IT Consultancy</a></b> provides expert advisory services to guide businesses on technology strategy, architecture, and implementation to achieve specific business goals. Consultants conduct comprehensive technology assessments, develop long-term IT roadmaps, help with vendor and platform selection, and manage complex technology projects to ensure alignment between IT investments and overall corporate strategy.</p></div><div class="type-message-time">${currentMessageTime}</div></div>`;
     chatbotContent.appendChild(aboutTab);
     chatbotContent.scrollTo({
       top: chatbotContent.scrollHeight,
@@ -514,11 +539,13 @@ function ItConsultancyTabShow() {
     // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
-  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
   chatbotContent.appendChild(typeMessage);
   },1005)
 }
 function dataCenterTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
@@ -537,7 +564,7 @@ function dataCenterTabShow() {
     animatedDotte.style.display = "none";
     const aboutTab = document.createElement("div");
     aboutTab.className = "reply-message-container";
-    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b>Data Center</b>services focus on designing, building, managing, and maintaining the physical and virtual infrastructure required to host and operate critical IT applications and data. This includes providing solutions for server and storage hardware, network infrastructure, virtualization, power and cooling management, and offering co-location, hosting, or fully managed services for maximum uptime and operational efficiency.</p></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
+    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b><a href="data-center-services" class="chatbot-links">Data Center</a></b> services focus on designing, building, managing, and maintaining the physical and virtual infrastructure required to host and operate critical IT applications and data. This includes providing solutions for server and storage hardware, network infrastructure, virtualization, power and cooling management, and offering co-location, hosting, or fully managed services for maximum uptime and operational efficiency.</p></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
     chatbotContent.appendChild(aboutTab);
     chatbotContent.scrollTo({
       top: chatbotContent.scrollHeight,
@@ -548,11 +575,13 @@ function dataCenterTabShow() {
     // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
-  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div><div class="type-message-time">${currentMessageTime}</div></div>`;
   chatbotContent.appendChild(typeMessage);
   },1005)
 }
 function disasterEmergencyManagementTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
@@ -571,7 +600,7 @@ function disasterEmergencyManagementTabShow() {
     animatedDotte.style.display = "none";
     const aboutTab = document.createElement("div");
     aboutTab.className = "reply-message-container";
-    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b>Disaster/Emergency Management</b> services, often termed Business Continuity and Disaster Recovery (BCDR), involve creating plans and implementing systems to ensure an organization can quickly resume mission-critical functions after a disruptive event. This covers planning, risk assessment, data backup and recovery solutions, establishing secondary failover sites, and conducting regular testing to minimize downtime and data loss.</p></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
+    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="./images/messsage-chatbot-red-icon.png" alt="message-cion"></div><div><div class="reply-message-content"><p><b><a href="disaster-emergency-services" class="chatbot-links">Disaster/Emergency Management</a></b> services, often termed Business Continuity and Disaster Recovery (BCDR), involve creating plans and implementing systems to ensure an organization can quickly resume mission-critical functions after a disruptive event. This covers planning, risk assessment, data backup and recovery solutions, establishing secondary failover sites, and conducting regular testing to minimize downtime and data loss.</p></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
     chatbotContent.appendChild(aboutTab);
     chatbotContent.scrollTo({
       top: chatbotContent.scrollHeight,
@@ -582,12 +611,14 @@ function disasterEmergencyManagementTabShow() {
     // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
-  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div><div class="reply-message-time">${currentMessageTime}</div></div>`;
   chatbotContent.appendChild(typeMessage);
   },1005)
 }
 
 function intelligentDebriefingAnalyticsTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------animted-dotte-loader------------------
   const animatedDotte = document.createElement("div");
   animatedDotte.className = "animated-dotte-container";
@@ -601,7 +632,7 @@ function intelligentDebriefingAnalyticsTabShow() {
     animatedDotte.style.display = "none";
     const aboutTab = document.createElement("div");
     aboutTab.className = "reply-message-container";
-    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="assets/images/message-chatbot-icon2.png" alt="message-cion"></div><div class="reply-message-content"><p><b>The Intelligent Debriefing with Analytics (IDA)</b> platform is a proprietary, AI/ML-powered solution designed for intelligent incident management in mission-critical environments. It functions as a strategic command center by aggregating and analyzing fragmented multi-source data (including social media) into a single, encrypted, real-time intelligence report. The platform leverages predictive analytics to forecast potential threats, monitors compliance with Standard Operating Procedures (SOPs), and continuously refines its intelligence to enable faster response, smarter decision-making, and enhanced accountability during security or disaster events.</p></div>`;
+    aboutTab.innerHTML = `<div class="chatbot-reply-icon"><img src="assets/images/message-chatbot-icon2.png" alt="message-cion"></div><div class="reply-message-content"><p><b><a href="intelligent-debriefing-with-analytics-ida" class="chatbot-links">The Intelligent Debriefing with Analytics (IDA)</a></b> platform is a proprietary, AI/ML-powered solution designed for intelligent incident management in mission-critical environments. It functions as a strategic command center by aggregating and analyzing fragmented multi-source data (including social media) into a single, encrypted, real-time intelligence report. The platform leverages predictive analytics to forecast potential threats, monitors compliance with Standard Operating Procedures (SOPs), and continuously refines its intelligence to enable faster response, smarter decision-making, and enhanced accountability during security or disaster events.</p></div>`;
     chatbotContent.appendChild(aboutTab);
     chatbotContent.scrollTo({
       top: chatbotContent.scrollHeight,
@@ -612,12 +643,14 @@ function intelligentDebriefingAnalyticsTabShow() {
     // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
-  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button></div></div>`;
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button  class="border-0 rounded-1" onclick="aboutBtn()">About Us </button> <button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div></div>`;
   chatbotContent.appendChild(typeMessage);
   },1005)
 }
 
 function IndustriesTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
@@ -650,6 +683,8 @@ function IndustriesTabShow() {
  },1005)
 }
 function IndustriesDetailsTabShow(){
+   currentMessageTime = ''
+  getCurrentMessageTime()
    setTimeout(() => {
     const aboutTab = document.createElement("div");
     aboutTab.className = "chatbot-sagation-message";
@@ -665,6 +700,8 @@ function IndustriesDetailsTabShow(){
 }
 
 function productTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
@@ -696,7 +733,6 @@ function productTabShow() {
     <div class="reply-message-content">
         Our product line includes various enterprise solutions. 
         Which product are you interested in? 
-        (whichever product is selected, the user is redirected to that product's page)
 </div>
 <div class="reply-message-time">${currentMessageTime}</div>
     </div>
@@ -716,6 +752,8 @@ function productTabShow() {
 }
 
 function productDetailsTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------ animated loader ------------------
   const animatedDotte = document.createElement("div");
   animatedDotte.className = "animated-dotte-container";
@@ -758,6 +796,8 @@ function productDetailsTabShow() {
 }
 
 function intelligentDebriefingAnalyticsTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
@@ -796,8 +836,17 @@ function intelligentDebriefingAnalyticsTabShow() {
       behavior: "smooth",
     });
   }, 1000);
+  setTimeout(() => {
+     // ------------sendMessage---------------------
+  const typeMessage = document.createElement("div");
+  typeMessage.className = "typemessage-container";
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div><div class="type-message-content">${currentMessageTime}</div></div>`;
+  chatbotContent.appendChild(typeMessage);
+  },1010)
 }
 function smartLandslideSystemTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
@@ -834,8 +883,17 @@ function smartLandslideSystemTabShow() {
       behavior: "smooth",
     });
   }, 1000);
+  setTimeout(() => {
+     // ------------sendMessage---------------------
+  const typeMessage = document.createElement("div");
+  typeMessage.className = "typemessage-container";
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div><div class="type-message-content">${currentMessageTime}</div></div>`;
+  chatbotContent.appendChild(typeMessage);
+  },1010)
 }
 function gisBasedWorkManagementSystemTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
@@ -872,8 +930,17 @@ function gisBasedWorkManagementSystemTabShow() {
       behavior: "smooth",
     });
   }, 1000);
+  setTimeout(() => {
+     // ------------sendMessage---------------------
+  const typeMessage = document.createElement("div");
+  typeMessage.className = "typemessage-container";
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div><div class="type-message-content">${currentMessageTime}</div></div>`;
+  chatbotContent.appendChild(typeMessage);
+  },1010)
 }
 function projectManagementSystemTabShow() {
+   currentMessageTime = ''
+  getCurrentMessageTime()
   // ------------sendMessage---------------------
   const typeMessage = document.createElement("div");
   typeMessage.className = "typemessage-container";
@@ -910,6 +977,13 @@ function projectManagementSystemTabShow() {
       behavior: "smooth",
     });
   }, 1000);
+  setTimeout(() => {
+     // ------------sendMessage---------------------
+  const typeMessage = document.createElement("div");
+  typeMessage.className = "typemessage-container";
+  typeMessage.innerHTML = `<div class="chatbot-sagation-message"><div class="chatbot-details-btn-container"><button class="border-0 rounded-1" onclick="serviceTab()">Services </button> <button  class="border-0 rounded-1" onclick="IndustriesTabShow()">Industries</button> <button  class="border-0 rounded-1" onclick="productTabShow()">Products</button> <button  class="border-0 rounded-1" onclick="careersShow()">Careers</button><button class="border-0 rounded-1" onclick="contactDetailsTabShow()">Contact Us </button></div><div class="type-message-content">${currentMessageTime}</div></div>`;
+  chatbotContent.appendChild(typeMessage);
+  },1010)
 }
 
 function careersShow(){
@@ -922,21 +996,13 @@ function backBtn() {
   });
 }
 
-
+// ---------getCurrentMessageTime-------------
 function getCurrentMessageTime(){
 const now = new Date();
-
 let hours = now.getHours();
 const minutes = String(now.getMinutes()).padStart(2, '0');
-
-// Convert to 12-hour format
 const ampm = hours >= 12 ? "PM" : "AM";
-hours = hours % 12 || 12; // convert 0 → 12
-
-console.log(`Current time: ${hours}:${minutes} ${ampm}`);
+hours = hours % 12 || 12; 
 currentMessageTime = `${hours}:${minutes} ${ampm}`
-
 }
-
 getCurrentMessageTime()
-console.log(currentMessageTime)
