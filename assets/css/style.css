@@ -59,6 +59,7 @@ body.appear-animate {
   background-color: #ffd9d9;
   color: #000000;
   padding: 14px;
+  box-shadow: 3px 2px 0px #4B4B4B40;
 }
 
 .chatbot-header-content {
